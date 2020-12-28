@@ -18,7 +18,10 @@ Plug 'morhetz/gruvbox'
 call plug#end()
 
 " this one starts nerdtree on in initial opening
-autocmd VimEnter * NERDTree
+" autocmd VimEnter * NERDTree
+
+" mapping to open nerdtree more easily
+nnoremap <C-g> :NERDTree<CR>
 
 " Exit Vim if NERDTree is the only window left.
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() |
@@ -31,3 +34,10 @@ autocmd BufWinEnter * silent NERDTreeMirror
 let g:gruvbox_contrast_dark = 'medium'
 " set bg=dark
 autocmd VimEnter * colorscheme base16-gruvbox-dark-medium
+
+" FZF key bindings
+nnoremap <C-f> :FZF<CR>
+let g:fzf_action = {
+  \'ctrl-t': 'tab split',
+  \ 'ctrl-i': 'split',
+  \ 'ctrl-v': 'vsplit' }
