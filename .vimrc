@@ -20,6 +20,7 @@ Plug 'jistr/vim-nerdtree-tabs'
 Plug 'Shougo/deoplete.nvim'
 Plug 'roxma/nvim-yarp'
 Plug 'roxma/vim-hug-neovim-rpc'
+Plug 'francoiscabrol/ranger.vim'
 call plug#end()
 
 
@@ -32,6 +33,9 @@ let g:deoplete#enable_at_startup = 1
 
 " mapping to open nerdtree more easily
 nnoremap <C-g> :NERDTreeTabsToggle<CR>
+" open ranger like file tree in vscode and show hidden sneaky files
+nnoremap <C-b> :Ranger<CR>
+let g:ranger_command_override = 'ranger --cmd "set show_hidden=true"'
 
 " Exit Vim if NERDTree is the only window left.
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() |
@@ -57,7 +61,7 @@ autocmd VimEnter * colorscheme base16-gruvbox-dark-medium
 nnoremap <C-f> :FZF<CR>
 let g:fzf_action = {
   \'ctrl-t': 'tab split',
-  \ 'ctrl-i': 'split',
+  \ 'ctrl-x': 'split',
   \ 'ctrl-v': 'vsplit' }
 
 " auto source when save
