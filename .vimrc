@@ -31,6 +31,13 @@ let g:deoplete#enable_at_startup = 1
 " this one starts nerdtree on in initial opening
 " autocmd VimEnter * NERDTree
 
+" Open Buffer Numbers to switch easily 
+nnoremap <F5> :buffers<CR>:buffer<Space>
+set confirm
+set wildchar=<Tab> wildmenu wildmode=full
+set wildcharm=<C-Z>
+nnoremap <F10> :b <C-Z>
+
 " mapping to open nerdtree more easily
 nnoremap <C-g> :NERDTreeTabsToggle<CR>
 " open ranger like file tree in vscode and show hidden sneaky files
