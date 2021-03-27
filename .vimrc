@@ -1,6 +1,7 @@
 syntax on
 
 set noerrorbells
+set nocompatible
 set nu
 set termguicolors
 set colorcolumn=80
@@ -21,6 +22,7 @@ Plug 'Shougo/deoplete.nvim'
 Plug 'roxma/nvim-yarp'
 Plug 'roxma/vim-hug-neovim-rpc'
 Plug 'francoiscabrol/ranger.vim'
+Plug 'sheerun/vim-polyglot'
 call plug#end()
 
 
