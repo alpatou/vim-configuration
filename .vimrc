@@ -23,6 +23,7 @@ Plug 'roxma/nvim-yarp'
 Plug 'roxma/vim-hug-neovim-rpc'
 Plug 'francoiscabrol/ranger.vim'
 Plug 'sheerun/vim-polyglot'
+Plug 'tomasiser/vim-code-dark'
 call plug#end()
 
 
@@ -64,7 +65,7 @@ let g:nerdtree_sync_cursorline = 1
 " required line for gruvbox theme 
 let g:gruvbox_contrast_dark = 'medium'
 " set bg=dark
-autocmd VimEnter * colorscheme base16-gruvbox-dark-medium
+autocmd VimEnter * colorscheme nord
 
 " FZF key bindings
 nnoremap <C-f> :FZF<CR>
