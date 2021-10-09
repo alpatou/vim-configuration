@@ -67,6 +67,9 @@ let g:gruvbox_contrast_dark = 'medium'
 " set bg=dark
 autocmd VimEnter * colorscheme nord
 
+" to find hidden files like .env 
+let $FZF_DEFAULT_COMMAND='find -L'
+
 " FZF key bindings
 nnoremap <C-f> :FZF<CR>
 let g:fzf_action = {
