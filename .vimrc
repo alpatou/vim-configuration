@@ -24,6 +24,7 @@ Plug 'roxma/vim-hug-neovim-rpc'
 Plug 'francoiscabrol/ranger.vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'tomasiser/vim-code-dark'
+Plug 'ludovicchabant/vim-gutentags'
 call plug#end()
 
 
