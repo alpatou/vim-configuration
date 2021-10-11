@@ -72,7 +72,7 @@ autocmd VimEnter * colorscheme nord
 let $FZF_DEFAULT_COMMAND='find -L'
 
 " FZF key bindings
-nnoremap <C-f> :FZF<CR>
+nnoremap <C-p> :FZF<CR>
 let g:fzf_action = {
   \'ctrl-t': 'tab split',
   \ 'ctrl-x': 'split',
