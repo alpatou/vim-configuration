@@ -36,7 +36,7 @@ let g:deoplete#enable_at_startup = 1
 :nnoremap <space> i<space><esc>
 :nnoremap <TAB> a<space><esc>
 :nnoremap ; a;<esc>
-:nnoremap k<CR> <S-o><esc>
+:nnoremap <CR> o<esc>
 
 " avoid black universal holes
 let g:gutentags_ctags_exclude = [
