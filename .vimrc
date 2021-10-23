@@ -31,6 +31,13 @@ call plug#end()
 " Use deoplete.
 let g:deoplete#enable_at_startup = 1
 
+" save your fingers, a little grey area between normal and insert mode like a
+" gray Jedi scum
+:nnoremap <space> i<space><esc>
+:nnoremap <TAB> a<space><esc>
+:nnoremap ; a;<esc>
+:nnoremap k<CR> <S-o><esc>
+
 " avoid black universal holes
 let g:gutentags_ctags_exclude = [
       \ '*.git', '*.svg', '*.hg',
