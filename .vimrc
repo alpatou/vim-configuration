@@ -121,7 +121,7 @@ let g:nerdtree_sync_cursorline = 1
 " required line for gruvbox theme 
 let g:gruvbox_contrast_dark = 'medium'
 " set bg=dark
-autocmd VimEnter * colorscheme nord
+autocmd VimEnter * colorscheme oceanic-next-vim
 
 " to find hidden files like .env 
 let $FZF_DEFAULT_COMMAND='find -L'
