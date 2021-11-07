@@ -26,6 +26,7 @@ Plug 'sheerun/vim-polyglot'
 Plug 'tomasiser/vim-code-dark'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'alvan/vim-closetag'
+Plug 'Raimondi/delimitMate'
 call plug#end()
 
 " filenames like *.xml, *.html, *.xhtml, ...
