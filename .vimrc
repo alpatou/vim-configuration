@@ -183,3 +183,6 @@ autocmd! bufwritepost .vimrc source %
 
 " auto wrap code, cause i use vertical monitor like a pozer
 set wrap
+
+
+set ignorecase
