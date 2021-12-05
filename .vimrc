@@ -6,6 +6,9 @@ set nu
 set termguicolors
 set colorcolumn=80
 
+set foldmethod=indent
+set foldlevel=99
+
 call plug#begin()
 Plug 'preservim/NERDTree'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -22,12 +25,58 @@ Plug 'Shougo/deoplete.nvim'
 Plug 'roxma/nvim-yarp'
 Plug 'roxma/vim-hug-neovim-rpc'
 Plug 'francoiscabrol/ranger.vim'
-Plug 'sheerun/vim-polyglot'
 Plug 'tomasiser/vim-code-dark'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'alvan/vim-closetag'
-Plug 'Raimondi/delimitMate'
+Plug 'dense-analysis/ale'
 call plug#end()
+
+" ALE
+let g:ale_fixers = {
+\   '*': ['remove_trailing_lines', 'trim_whitespace'],
+\   'javascript': ['prettier','eslint'],
+\   'php': ['php_cs_fixer','remove_trailing_lines', 'trim_whitespace'],
+\}
+let g:ale_linters = {
+\   '*': ['remove_trailing_lines', 'trim_whitespace'],
+\   'php': ['phpcbf'],
+\}
+let b:ale_fix_on_save = 1
+let b:ale_fix_on_enter = 0
+
+" Enable completion where available.
+" This setting must be set before ALE is loaded.
+"
+" You should not turn this setting on if you wish to use ALE as a completion
+" source for other completion plugins, like Deoplete.
+let g:ale_completion_enabled = 1
+set omnifunc=ale#completion#OmniFunc
+let g:ale_completion_autoimport = 1
+
+nmap <silent> <C-e> <Plug>(ale_next_wrap)
+" Set this. Airline will handle the rest.
+"let g:airline#extensions#ale#enabled = 1
+
+
+function! LinterStatus() abort
+    let l:counts = ale#statusline#Count(bufnr(''))
+
+    let l:all_errors = l:counts.error + l:counts.style_error
+    let l:all_non_errors = l:counts.total - l:all_errors
+
+    return l:counts.total == 0 ? 'OK' : printf(
+    \   '%dW %dE',
+    \   all_non_errors,
+    \   all_errors
+    \)
+endfunction
+
+set statusline=%{LinterStatus()}
+" end of ALE
+
+
+
+set encoding=utf-8
 
 " filenames like *.xml, *.html, *.xhtml, ...
 " These are the file extensions where this plugin is enabled.
@@ -135,7 +184,7 @@ let g:gutentags_ctags_exclude = [
 " this one starts nerdtree on in initial opening
 " autocmd VimEnter * NERDTree
 
-" Open Buffer Numbers to switch easily 
+" Open Buffer Numbers to switch easily
 nnoremap <F5> :buffers<CR>:buffer<Space>
 set confirm
 set wildchar=<Tab> wildmenu wildmode=full
@@ -163,12 +212,12 @@ let g:nerdtree_sync_cursorline = 1
 " autocmd BufEnter * if &modifiable | NERDTreeFind | wincmd p | endif
 
 
-" required line for gruvbox theme 
+" required line for gruvbox theme
 let g:gruvbox_contrast_dark = 'medium'
 " set bg=dark
 autocmd VimEnter * colorscheme space-vim-dark
 
-" to find hidden files like .env 
+" to find hidden files like .env
 let $FZF_DEFAULT_COMMAND='find -L'
 
 " FZF key bindings
@@ -202,10 +251,10 @@ set ignorecase
 " %L(Total number of lines)
 " %p(How far in file we are percentage wise)
 " %%(Percent sign)
-set statusline=%F%m%r%<\ %=%l,%v\ [%L]\ %p%%
+"set statusline=%F%m%r%<\ %=%l,%v\ [%L]\ %p%%
 
 " Change the highlighting so it stands out
-hi statusline ctermbg=white ctermfg=black
+"hi statusline ctermbg=white ctermfg=black
 
 " Make sure it always shows
-set laststatus=2
+"set laststatus=2
