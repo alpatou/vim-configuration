@@ -41,8 +41,10 @@ let g:ale_linters = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
 \   'php': ['phpcbf'],
 \}
-let b:ale_fix_on_save = 1
-let b:ale_fix_on_enter = 0
+let g:ale_fix_on_save = 1
+let g:ale_lint_on_save = 1
+
+let g:ale_fix_on_enter = 0
 
 " Enable completion where available.
 " This setting must be set before ALE is loaded.
@@ -53,7 +55,7 @@ let g:ale_completion_enabled = 1
 set omnifunc=ale#completion#OmniFunc
 let g:ale_completion_autoimport = 1
 
-nmap <silent> <C-e> <Plug>(ale_next_wrap)
+nmap <silent> <C-s> <Plug>(ale_next_wrap)
 " Set this. Airline will handle the rest.
 "let g:airline#extensions#ale#enabled = 1
 
